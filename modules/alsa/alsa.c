@@ -50,7 +50,7 @@ int alsa_reset(snd_pcm_t *pcm, uint32_t srate, uint32_t ch, enum aufmt fmt,
 {
 	snd_pcm_hw_params_t *hw_params = NULL;
 	const snd_pcm_format_t pcmfmt = audio_fmt(fmt);
-	snd_pcm_uframes_t period = num_frames, bufsize = num_frames * 10;
+	snd_pcm_uframes_t period = num_frames, bufsize = num_frames * 3;
 	int err;
 
 	err = snd_pcm_hw_params_malloc(&hw_params);
