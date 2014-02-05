@@ -349,8 +349,7 @@ static void poll_aubuf_tx(struct audio *a)
 	sampc = tx->psize / 2;
 
 	/* timed read from audio-buffer */
-	if (aubuf_get_samp(tx->aubuf, tx->ptime, tx->sampv, sampc))
-		return;
+	aubuf_read_samp(tx->aubuf, sampv, sampc);
 
 	/* optional resampler */
 	if (tx->resamp.resample) {
