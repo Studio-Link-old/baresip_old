@@ -199,7 +199,7 @@ endif
 
 MODULES   += $(EXTRA_MODULES)
 MODULES   += stun turn ice natbd auloop presence
-MODULES   += menu contact vumeter mwi account natpmp httpd
+MODULES   += menu contact vumeter mwi account natpmp httpd httpdsc
 ifneq ($(HAVE_PTHREAD),)
 MODULES   += aubridge
 endif
