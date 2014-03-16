@@ -295,7 +295,7 @@ static const struct cmd cmdv[] = {
 	{'t',       0, "Timer debug",              tmr_status           },
 	{'u',       0, "UA debug",                 cmd_ua_debug         },
 	{'y',       0, "Memory status",            mem_status           },
-	{0x1b,      0, "Hangup call",              cmd_hangup           },
+	{'k',       0, "Hangup call",              cmd_hangup           },
 	{' ',       0, "Toggle UAs",               cmd_ua_next          },
 	{'g',       0, "Print configuration",      cmd_config_print     },
 

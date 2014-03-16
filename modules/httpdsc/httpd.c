@@ -33,18 +33,12 @@ static int html_print_cmd(struct re_printf *pf, const struct http_msg *req)
         case 'f': params.p = "\n"; //Accept Call
                   params.l = 1;
                   break;
-        case 'k': params.p = 0x1b; //Hangup Call
-                  params.l = 1;
-                  break;
         case 'j': params.p = " "; //Toggle UAs
                   params.l = 1;
                   break;
     }
 
-	return re_hprintf(pf,
-			  "%H\n",
-			  NULL, NULL,
-			  ui_input_pl, &params);
+	return re_hprintf(pf, "%H\n", ui_input_pl, &params);
 }
 
 
