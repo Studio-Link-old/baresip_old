@@ -65,7 +65,7 @@ static int module_init(void)
 	int err;
 
 	if (conf_get_sa(conf_cur(), "http_listen", &laddr)) {
-		sa_set_str(&laddr, "0.0.0.0", 8000);
+		sa_set_str(&laddr, "127.0.0.1", 8000);
 	}
 
 	err = http_listen(&httpsock, &laddr, http_req_handler, NULL);
