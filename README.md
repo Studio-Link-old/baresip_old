@@ -2,6 +2,8 @@
 
 Please don`t checkout branches, we are rebaseing the patches sometimes with:
 
-`$ git rebase -i --autosquash master`
-
-
+```
+$ git checkout http_api
+$ git rebase -i --autosquash master
+$ git push -f
+```
