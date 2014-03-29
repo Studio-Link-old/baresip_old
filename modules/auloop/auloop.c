@@ -278,7 +278,7 @@ static int audio_loop_alloc(struct audio_loop **alp)
 }
 
 
-static int audio_loop_cycle(struct audio_loop *al)
+static int audio_loop_cycle(struct re_printf *pf, struct audio_loop *al)
 {
 	int err;
 
@@ -295,7 +295,8 @@ static int audio_loop_cycle(struct audio_loop *al)
 		return err;
 
 	info("\nAudio-loop started: %uHz, %dch\n", al->srate, al->ch);
-
+	(void)re_hprintf(pf, "\nAudio-loop started: %uHz, %dch\n", al->srate, al->ch);
+    
 	return 0;
 }
 
@@ -311,7 +312,7 @@ static int auloop_start(struct re_printf *pf, void *arg)
 	(void)arg;
 
 	if (gal) {
-		err = audio_loop_cycle(gal);
+		err = audio_loop_cycle(pf, gal);
 		if (err) {
 			warning("auloop: loop cycle: %m\n", err);
 		}
