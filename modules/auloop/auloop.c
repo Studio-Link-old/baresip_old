@@ -287,6 +287,7 @@ static int audio_loop_cycle(struct re_printf *pf, struct audio_loop *al)
 	if (al->index >= ARRAY_SIZE(configv)) {
 		gal = mem_deref(gal);
 		info("\nAudio-loop stopped\n");
+		(void)re_hprintf(pf, "audio-loop stopped\n");
 		return 0;
 	}
 
@@ -319,6 +320,7 @@ static int auloop_start(struct re_printf *pf, void *arg)
 	}
 	else {
 		err = audio_loop_alloc(&gal);
+	    (void)re_hprintf(pf, "\nAudio-loop started: %uHz, %dch\n", gal->srate, gal->ch);
 		if (err) {
 			warning("auloop: alloc failed %m\n", err);
 		}
